@@ -578,18 +578,19 @@ body.custom-font-enabled {
 }
 a {
 	outline: none;
-	color: rgb(81, 165, 168); /*Article Title Normal*/
+	color: rgb(202, 189, 3); /*Article Title Normal*/
     text-decoration: none;
 }
 a:hover {
-	color: rgb(0, 0, 0); /*Article Title Hover*/
+	color: rgb(53, 189, 3); /*Article Title Hover*/
     text-decoration: underline;
 }
 
 
 /* Backgroud image */
 #bg {
-  background-image: url("images/body.jpg");
+  /* background-image: url("images/body.jpg"); */
+  background-image: url("images/new_body.jpg"); 
   background-color: #050a10;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -624,7 +625,7 @@ a:hover {
 }
 .main-navigation .assistive-text:focus {
 	background: #fff;
-	border: 2px solid #333;
+	border: 2px solid #333333;
 	border-radius: 3px;
 	clip: auto !important;
 	color: #000;
@@ -670,7 +671,7 @@ a:hover {
 }
 .site-header h1 a:hover,
 .site-header h2 a:hover {
-	color: rgb(81, 156, 158); /* Main Title Hover */
+	color: rgb(0, 150, 0); /* Main Title Hover */
 }
 .site-header h1 {
 	font-size: 24px;
@@ -684,7 +685,7 @@ a:hover {
 	font-size: 13px;
 	font-size: 0.928571429rem;
 	line-height: 1.846153846;
-	color: #757575;
+	color: rgb(9, 66, 88);
 }
 .header-image {
 	margin-top: 24px;
