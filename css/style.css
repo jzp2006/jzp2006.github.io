@@ -129,10 +129,20 @@ h6 {
 	clear: both;
 }
 html {
+	overflow-x: hidden; 
 	overflow-y: scroll;
 	font-size: 100%;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
+}
+html::-webkit-scrollbar {
+	display: none; 
+}
+html {
+	scrollbar-width: none;
+}
+html {
+	-ms-overflow-style: none;
 }
 a:focus {
 	outline: thin dotted;
