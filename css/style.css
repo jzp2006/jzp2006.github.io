@@ -1383,7 +1383,7 @@ article.format-quote .entry-content blockquote {
 /* =Comments
 -------------------------------------------------------------- */
 
-.comments-title {
+/* .comments-title {
 	margin-bottom: 48px;
 	margin-bottom: 3.428571429rem;
 	font-size: 16px;
@@ -1490,7 +1490,7 @@ a.comment-edit-link:hover {
 	margin-bottom: 1.714285714rem;
 }
 
-/* Comment form */
+/ * Comment form * /
 #respond {
 	margin-top: 48px;
 	margin-top: 3.428571429rem;
@@ -1543,6 +1543,218 @@ a.comment-edit-link:hover {
 }
 .required {
 	color: red;
+} */
+
+/* Get from the Internet */
+/* Valine comments */
+
+div#comments.comments.v{
+  margin-top: 0px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+div.vheader.item2{
+  border-bottom: 1px solid #5f5f5f;
+  height: 35px !important;
+}
+
+.v .vwrap .vheader.item2 .vinput{
+  height: 30px !important;
+  border: 0px !important;
+  width: 25% !important;
+  margin: 0px !important;
+}
+
+div.vcontrol{
+  padding-top: 0px !important;
+}
+
+div#comments.comments.v{
+  border: 0px;
+}
+
+.v .vwrap {
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  padding: 10px;
+}
+
+.v .vwrap .vedit .vemojis{
+  display: none;
+  font-size: 18px;
+  text-align: justify;
+  max-height: 145px;
+  overflow: auto;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0 0 1px #f0f0f0;
+  box-shadow: 0 0 1px #f0f0f0;
+}
+
+.v .vwrap .vedit .vpreview {
+  width: 600px !important;
+  background-color: #fff !important;
+  border-radius: 5px !important;
+}
+
+.v .vbtn{
+  background-color: #5f5f5f !important;
+  color: #fff !important;
+}
+
+div .v .vwrap .vedit .vctrl{
+  text-align: left;
+  font-size: 12px;
+}
+
+.v .vwrap .vedit .vctrl span{    
+  padding: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.v .vwrap .vedit .vctrl{
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.v .veditor{
+  min-height: 70px !important;
+}
+
+.v .vwrap .vcontrol .col {
+	display: inline-block;
+	font-size: 16px;
+	vertical-align: middle;
+	color: #ccc;
+}
+
+.v .vwrap .vcontrol .col.col-80 {
+  width: 80%;
+}
+
+.v .vwrap .vcontrol .col.text-right {
+  text-align: right;
+}
+
+.v .vlist .vcard:last-child .vh {
+    border-bottom: none;
+}
+
+.v .vlist .vcard .vh .vmeta .vat{
+  background-color: #7f7f7f !important;
+  color: #fff !important;
+  border-radius: 3px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.v .vlist {
+	counter-reset: count1 13;
+}
+
+.v .vlist .vcard .vhead:before{
+  display: block;
+  float: right;
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  margin: 0 12px 0 0;
+  color: #e67e22;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  background-color: #e67e22;
+  border: 3px solid #fff;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  
+  content: counter(count1);
+  counter-increment: count1 -1;
+}
+
+.v .vlist .vcard .vhead .vsys{
+  display: none !important;
+  background-color: #fff !important;
+}
+
+div .v .vlist .vcard .vhead .vnick {
+  color: #e67e22;
+}
+
+/* .v .vlist .vcard .vhead .vnick:before {
+  background: #e67e22 !important;
+}
+
+.v a:before {
+  background: #e67e22 !important;
+} */
+
+.v .vlist .vcard .vimg:hover {
+  -transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+}
+
+.v .vlist .vcard .vquote{
+  margin-left: 0px; 
+  width: 90%;
+}
+
+.v .vlist .vcard .vquote{
+  counter-reset: count2;
+}
+
+.v .vlist .vcard .vquote .vhead:before{
+  display: block;
+  float: right;
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  margin: 0 12px 0 0;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  background-color: #fff;
+  border: 3px solid #60a1e5;
+  color: #60a1e5;
+  border-radius: 50%;
+  text-align: center;
+  
+  content: counter(count2);
+  counter-increment: count2;
+}
+
+.v .vlist .vcard  p{
+  margin-bottom: 0px !important;
+  color: #666;
+  text-align: left;
+  letter-spacing: 3px; 
+  line-height: 25.59375px;
+}
+.v .vlist .vcard .vquote a.at{
+  float: left;
+  margin-right: 13px; 
+  color: #567843;
+  text-decoration: none;
+}
+
+.v .vlist .vcard .vquote .vcontent{
+  font-size: 15px;
+  font-weight: 200;
+}
+
+.v .vlist .vcard .vcontent.expand:after{
+  content: "点击查看全部" !important;
+  font-weight: 400 !important;
 }
 
 
