@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="题目大意给定一个只含有小写字母的字符串 $s$ 与其长度 $n$.求出任意区间内相同字母出现次数的范围的最大值.  
+即: 求出$$\max_{1 \leq i \leq j \leq n}{\max_{k \subseteq \text{lowerletter}}{num_{i, j, k}} - \min_{k \subseteq \text{lowerletter}}{num_{i, j, k}}}$$其中, $\text{lowerletter}$ 表示 小写字母集合 然而貌似是 lowercase 2333$num_{i, j, k}$ 表示 区间 $[i,j]$ 内字母 $k$ 出现的次数." />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>洛谷 P3519 [POI2011]ROZ-Difference 题解 | jzp1605&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="题目大意给定一个只含有小写字母的字符串 $s$ 与其长度 $n$.求出任意区间内相同字母出现次数的范围的最大值.   即: 求出$$\max_{1 \leq i \leq j \leq n}{\max_{k \subseteq \text{lowerletter}}{num_{i, j, k}} - \min_{k \subseteq \text{lowerletter}}{num_{i, j,">
+<meta name="keywords" content="字符串">
+<meta property="og:type" content="article">
+<meta property="og:title" content="洛谷 P3519 [POI2011]ROZ-Difference 题解">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;12&#x2F;Solution-LG-P3519&#x2F;index.html">
+<meta property="og:site_name" content="jzp1605&#39;s blog">
+<meta property="og:description" content="题目大意给定一个只含有小写字母的字符串 $s$ 与其长度 $n$.求出任意区间内相同字母出现次数的范围的最大值.   即: 求出$$\max_{1 \leq i \leq j \leq n}{\max_{k \subseteq \text{lowerletter}}{num_{i, j, k}} - \min_{k \subseteq \text{lowerletter}}{num_{i, j,">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-12T14:25:02.194Z">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/css/images/new_favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+    <script type="text/javascript"> 
+  function GetRandNum(x) {
+    return Math.floor(Math.random() * x); 
+  }
+  function GetRandSubtitle(s) {
+    var subtitles = s.split('+'); 
+    var s_idx = GetRandNum(subtitles.length); 
+    var text = subtitles[s_idx]; 
+    return text; 
+    // return s; 
+  }
+</script>
+
+<header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="jzp1605&#39;s blog" rel="home">jzp1605&#39;s blog</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <!-- <a href="/" id="subtitle">So lost, I&#39;m faded.+If I have a diamond heart.+If I&#39;m unbreakable.+Everything you want in gold.+I&#39;ll give you everything you&#39;ve been dreaming of.+Even if they understand, they don&#39;s understand.+So take aim and fight away.+I&#39;m on my way.+When it all falls down ...+I&#39;ll be fine.+Why do we said this to ourselves, and even worse to each other?+We gotta get back to beautiful ...+Diamonds don&#39;t shatter, beautiful and battered.+Let the darkness lead us into the night.+One touch and I ignite.+Hear you calling me on from afar ...+We live, we love, we lie.+Deep in the dark I don&#39;t need the light.+So I walk into the dead of night.+I lost, I lost, I lost control again.+Always do the same and I&#39;m to blame.+Love there&#39;s no need to hide ...+I&#39;m waiting on the sidelines.+Just let me love you when your heart is tired.+If this night is not forever, at least we are together.+I know I&#39;m not alone.+Anywhere whenever, apart will still together.+Like the memory of everything we used to be ...+You played for me ...+We couldn&#39;t stop the world from turning.+Anywhere anytime, I would do anything for you.+Sing me to sleep now ...+Where are you now ...+Were you only imaginary ...+But I don&#39;t wanna go just yet ...+Shouldn&#39;t stay but I don&#39;t wanna go.+You know I&#39;m like a ghost, sometimes I have to fade ...+I do it all for you ...+Darkness faded, I wanna see your face ...</a> -->
+          <script> 
+            document.write(GetRandSubtitle("So lost, I&#39;m faded.+If I have a diamond heart.+If I&#39;m unbreakable.+Everything you want in gold.+I&#39;ll give you everything you&#39;ve been dreaming of.+Even if they understand, they don&#39;s understand.+So take aim and fight away.+I&#39;m on my way.+When it all falls down ...+I&#39;ll be fine.+Why do we said this to ourselves, and even worse to each other?+We gotta get back to beautiful ...+Diamonds don&#39;t shatter, beautiful and battered.+Let the darkness lead us into the night.+One touch and I ignite.+Hear you calling me on from afar ...+We live, we love, we lie.+Deep in the dark I don&#39;t need the light.+So I walk into the dead of night.+I lost, I lost, I lost control again.+Always do the same and I&#39;m to blame.+Love there&#39;s no need to hide ...+I&#39;m waiting on the sidelines.+Just let me love you when your heart is tired.+If this night is not forever, at least we are together.+I know I&#39;m not alone.+Anywhere whenever, apart will still together.+Like the memory of everything we used to be ...+You played for me ...+We couldn&#39;t stop the world from turning.+Anywhere anytime, I would do anything for you.+Sing me to sleep now ...+Where are you now ...+Were you only imaginary ...+But I don&#39;t wanna go just yet ...+Shouldn&#39;t stay but I don&#39;t wanna go.+You know I&#39;m like a ghost, sometimes I have to fade ...+I do it all for you ...+Darkness faded, I wanna see your face ...")); 
+          </script>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+    <div id="main" class="wrapper">
+      <div id="primary" class="site-content">
+        <div id="content" role="main"><article id="post-Solution-LG-P3519" class="post-Solution-LG-P3519 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      洛谷 P3519 [POI2011]ROZ-Difference 题解
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <!-- <a href="javascript:void(0);" target="_blank" rel="noopener" data-url="http://yoursite.com/2020/01/12/Solution-LG-P3519/" data-id="ck5b42uva0000tgnt8xyvgw1h" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a> -->
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>给定一个只含有小写字母的字符串 $s$ 与其长度 $n$.<br>求出任意区间内相同字母出现次数的范围的最大值.  </p>
+<p>即: 求出<br>$$\max_{1 \leq i \leq j \leq n}{\max_{k \subseteq \text{lowerletter}}{num_{i, j, k}} - \min_{k \subseteq \text{lowerletter}}{num_{i, j, k}}}$$<br>其中, $\text{lowerletter}$ 表示 小写字母集合 <del>然而貌似是 lowercase 2333</del><br>$num_{i, j, k}$ 表示 区间 $[i,j]$ 内字母 $k$ 出现的次数.</p>
+<a id="more"></a>
+
+<p>样例输入: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">10</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">aabbaaabab</span></pre></td></tr></table></figure>
+<p>样例输出: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">2</span></pre></td></tr></table></figure>
+
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>一道奇怪的字符串题 (?)</p>
+<p>考虑先推一下式子</p>
+<p>$$\max_{1 \leq i \leq j \leq n}{\max_{k \subseteq \text{lowerletter}}{num_{i, j, k}} - \min_{k \subseteq \text{lowerletter}}{num_{i, j, k}}}$$     </p>
+<p>使用前缀和 $S_{i, k}=\sum_{j=1}^i [s_j=k]$ 优化  </p>
+<p>$$= \max_{1 \leq i \leq j \leq n}{\max_{a, b \subseteq \text{lowerletter}}{(S_{j, a} - S_{i, a})-(S_{j, b} - S_{i, b})}}$$     </p>
+<p>整理一下.  </p>
+<p>$$= \max_{a, b \subseteq \text{lowerletter}}{\max_{1 \leq i \leq j \leq n}{(S_{j, a} - S_{j, b})-(S_{i, a} - S_{i, b})}}$$  </p>
+<p>尝试先枚举 $j$ 再枚举 $i$, 发现只需要使 $S_{i, a} - S_{i, b}$ 最小即可, 而这一步在枚举 $j$ 时即可处理出.  </p>
+<p>接下来就很简单了.</p>
+<p>开个数组 $min_{i, a, b}=\min_{1 \leq j \leq i}{S_{j, a} - S_{j, b}}$ 记录最小值, 具体实现过程中 $i$ 这一维可以压掉.</p>
+<p>然后 $\Theta(n)$ 扫一遍, 每次 $\Theta(1)$ 更新 $min$数组 <del>其实是 O(52), 比 logn 还大</del></p>
+<p>总复杂度 $\Theta(n)$. <del>跑得比 nlogn 还慢</del></p>
+<p>但是此处有一个坑点: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">7</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">abbbaaa</span></pre></td></tr></table></figure>
+
+<p>这玩意会卡掉你的程序.  </p>
+<p>死因: 将区间内出现次数最少的数判断为未在此区间出现的数.<br>即: $(S_{j, b} - S_{i, b}) = 0$, 但是 $(S_{j, a} - S_{j, b}) \neq 0$ 且 $(S_{i, a} - S_{i, b}) \neq 0$</p>
+<p>其实再开个数组记录一下这个 $min$ 是什么时候转移来的就好了.</p>
+<p>Q: 为什么不用判断 $S_{i, b} = 0$ 时的情况?<br>A: 这种情况通过新增加的那个 $mmin$ 数组已经排除掉了. </p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// tested by LGID: International_Master</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span> </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ctype.h"</span> </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// #define qwq</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// #define ONLINE_JUDGE</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> ONLINE_JUDGE  </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> qaq return 0</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> qaq while(1)  </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Max</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> a &gt; b? a: b; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Min</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> a &lt; b? a: b; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">int</span> x = <span class="number">0</span>, y = <span class="number">1</span>; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">char</span> ch = getc(<span class="built_in">stdin</span>); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(ch)) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">        (y = (ch == <span class="string">'-'</span>)? <span class="number">-1</span>: y), ch = getc(<span class="built_in">stdin</span>); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(ch)) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">        x = (x &lt;&lt; <span class="number">3</span>) + (x &lt;&lt; <span class="number">1</span>) + (ch &amp; <span class="number">15</span>), ch = getc(<span class="built_in">stdin</span>); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> x * y; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> s[<span class="number">1000010</span>]; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n, times[<span class="number">30</span>], min[<span class="number">30</span>][<span class="number">30</span>], mmin[<span class="number">30</span>][<span class="number">30</span>], ans; <span class="comment">// mmin 表示 min 转移时 S_&#123;i, b&#125; 的值</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">main() &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">#<span class="meta-keyword">ifdef</span> qwq</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">        freopen(<span class="string">"P3519.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">        freopen(<span class="string">"P3519.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span>  </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line">    n = read(); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; s[i]; ++ i) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line">        ++ times[s[i] - <span class="string">'a'</span>]; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">27</span>; ++ j) &#123; <span class="comment">// 以增加的为字母 b 做转移 </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">if</span> (min[j][s[i] - <span class="string">'a'</span>] &gt; times[j] - times[s[i] - <span class="string">'a'</span>]) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><span class="line">                    min[j][s[i] - <span class="string">'a'</span>] = times[j] - times[s[i] - <span class="string">'a'</span>], mmin[j][s[i] - <span class="string">'a'</span>] = times[s[i] - <span class="string">'a'</span>]; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">if</span> (times[s[i] - <span class="string">'a'</span>] != mmin[j][s[i] - <span class="string">'a'</span>]) <span class="comment">// 特判</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><span class="line">                    ans = Max(ans, (times[j] - times[s[i] - <span class="string">'a'</span>]) - min[j][s[i] - <span class="string">'a'</span>]); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">50</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">51</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">27</span>; ++ j) &#123; <span class="comment">// 以增加的为字母 a 做转移</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">52</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">if</span> (min[s[i] - <span class="string">'a'</span>][j] &gt; times[s[i] - <span class="string">'a'</span>] - times[j]) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">53</span></pre></td><td class="code"><pre><span class="line">                    min[s[i] - <span class="string">'a'</span>][j] = times[s[i] - <span class="string">'a'</span>] - times[j], mmin[s[i] - <span class="string">'a'</span>][j] = times[j]; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">54</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">if</span> (times[j] != mmin[s[i] - <span class="string">'a'</span>][j]) <span class="comment">// 特判</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">55</span></pre></td><td class="code"><pre><span class="line">                    ans = Max(ans, (times[s[i] - <span class="string">'a'</span>] - times[j]) - min[s[i] - <span class="string">'a'</span>][j]); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">56</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">57</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">58</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">59</span></pre></td><td class="code"><pre><span class="line">    qaq; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">60</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">61</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">62</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// 附赠 3 组自己拍出来的数据 qwq</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">63</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// n : 10</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">64</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// s : b a b b a a a b a b</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">65</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// Sa: 0 1 1 1 2 3 4 4 5 5</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">66</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// Sb: 1 1 2 3 3 3 3 4 4 5</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">67</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// n : 7</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">68</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// s : b a a a b b b</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">69</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// Sa: 0 1 2 3 3 3 3</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">70</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// Sb: 1 1 1 1 2 3 4</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">71</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// n : 8</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">72</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// s : b a a a b a a b</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">73</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// Sa: 0 1 2 3 3 4 5 5</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">74</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// Sb: 1 1 1 1 2 2 2 3</span></span></pre></td></tr></table></figure>
+
+
+<p>End.</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/01/12/Solution-LG-P3519/">
+    <time datetime="2020-01-12T10:54:04.000Z" class="entry-date">
+        2020-01-12
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li></ul>
+
+    </footer>
+    
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2019/11/29/hello-world/" rel="next">Hello World <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+ 
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'lNUpA6BkJImryiC6W4KEOr1H-MdYXbMMI',
+            appKey: '6zz0wbwT2TlL9MRAaNfceFPI',
+            visitor: true,
+            placeholder: '说点什么?'
+        })
+    </script>
+</div>
+      </div>
+      <div id="secondary" class="widget-area" role="complementary">
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2020/01/12/Solution-LG-P3519/">洛谷 P3519 [POI2011]ROZ-Difference 题解</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/29/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">字符串</a>
+    </div>
+  </aside>
+
+  
+</div>
+    </div>
+    <footer id="colophon" role="contentinfo">
+    <p>&copy; 2020 jzp
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+    <script type="text/javascript" src="/js/line_background.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function ($) {
+        $("body").click(function (e) {
+          var a = new Array("queue", "stack", "priority queue", "deque", "humdrum queue", "humdrum stack", "segment tree", "splay tree", "zkw segment tree", "tree array", "treap tree", "red black tree", "scapegoat tree", "fhq treap tree", "size balanced tree", "binary search tree", "top tree", "leafy tree", "list", "array", "tree", "avl tree", "link cut tree", "persistent segment tree", "immortal tree", "kruskal reconstruction tree", "weight balanced tree", "weight balanced leafy tree", "set", "multiset");
+          var a_idx = Math.floor(Math.random() * a.length);
+          var $i = $("<span/>").text(a[a_idx]);
+          var x = e.pageX,
+            y = e.pageY;
+          $i.css({
+            "z-index": 2147483647,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+          });
+          $("body").append($i);
+          $i.animate({
+            "top": y - 180,
+            "opacity": 0
+          },
+            1500,
+            function () {
+              $i.remove();
+            });
+        });
+      });
+    </script>
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+
+</html>
