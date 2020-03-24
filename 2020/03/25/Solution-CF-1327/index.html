@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="咕咕咕好久了 .. 发份题解罢 
+
+CF 1327 [Edu Round 84 (Div.2)] 赛后题解rk: $3771$, $\Delta : -17$  
+所有题解均由 lguid 244079 转载在其博客上, 单独作为题解 .. 这个不会被封博客罢 (  
+
+赛后感想: 
+这场又是自闭下分场 ..明明会 5 道却只做出来两道 ..明明开 B 或 E 都可以上分, 却开了 D ..明明 D 想到正解了却算错复杂度 .. .. .. zbl嘤, 难受  
+好吧现在是题解 time! (还是很自闭, 嘤嘤嘤" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>Codeforces 1327 [Edu Round 84 (Div.2)] 赛后题解 | jzp1605&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="咕咕咕好久了 .. 发份题解罢   CF 1327 [Edu Round 84 (Div.2)] 赛后题解rk: $3771$, $\Delta : -17$   所有题解均由 lguid 244079 转载在其博客上, 单独作为题解 .. 这个不会被封博客罢 (    赛后感想:  这场又是自闭下分场 ..明明会 5 道却只做出来两道 ..明明开 B 或 E 都可以上分, 却开了 D ..明明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Codeforces 1327 [Edu Round 84 (Div.2)] 赛后题解">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;25&#x2F;Solution-CF-1327&#x2F;index.html">
+<meta property="og:site_name" content="jzp1605&#39;s blog">
+<meta property="og:description" content="咕咕咕好久了 .. 发份题解罢   CF 1327 [Edu Round 84 (Div.2)] 赛后题解rk: $3771$, $\Delta : -17$   所有题解均由 lguid 244079 转载在其博客上, 单独作为题解 .. 这个不会被封博客罢 (    赛后感想:  这场又是自闭下分场 ..明明会 5 道却只做出来两道 ..明明开 B 或 E 都可以上分, 却开了 D ..明明">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-24T21:37:02.719Z">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/css/images/new_favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+    <script type="text/javascript"> 
+  function GetRandNum(x) {
+    return Math.floor(Math.random() * x); 
+  }
+  function GetRandSubtitle(s) {
+    var subtitles = s.split('+'); 
+    var s_idx = GetRandNum(subtitles.length); 
+    var text = subtitles[s_idx]; 
+    return text; 
+    // return s; 
+  }
+</script>
+
+<header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="jzp1605&#39;s blog" rel="home">jzp1605&#39;s blog</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <!-- <a href="/" id="subtitle">So lost, I&#39;m faded.+If I have a diamond heart.+If I&#39;m unbreakable.+Everything you want in gold.+I&#39;ll give you everything you&#39;ve been dreaming of.+Even if they understand, they don&#39;s understand.+So take aim and fight away.+I&#39;m on my way.+When it all falls down ...+I&#39;ll be fine.+Why do we said this to ourselves, and even worse to each other?+We gotta get back to beautiful ...+Diamonds don&#39;t shatter, beautiful and battered.+Let the darkness lead us into the night.+One touch and I ignite.+Hear you calling me on from afar ...+We live, we love, we lie.+Deep in the dark I don&#39;t need the light.+So I walk into the dead of night.+I lost, I lost, I lost control again.+Always do the same and I&#39;m to blame.+Love there&#39;s no need to hide ...+I&#39;m waiting on the sidelines.+Just let me love you when your heart is tired.+If this night is not forever, at least we are together.+I know I&#39;m not alone.+Anywhere whenever, apart will still together.+Like the memory of everything we used to be ...+You played for me ...+We couldn&#39;t stop the world from turning.+Anywhere anytime, I would do anything for you.+Sing me to sleep now ...+Where are you now ...+Were you only imaginary ...+But I don&#39;t wanna go just yet ...+Shouldn&#39;t stay but I don&#39;t wanna go.+You know I&#39;m like a ghost, sometimes I have to fade ...+I do it all for you ...+Darkness faded, I wanna see your face ...</a> -->
+          <script> 
+            document.write(GetRandSubtitle("So lost, I&#39;m faded.+If I have a diamond heart.+If I&#39;m unbreakable.+Everything you want in gold.+I&#39;ll give you everything you&#39;ve been dreaming of.+Even if they understand, they don&#39;s understand.+So take aim and fight away.+I&#39;m on my way.+When it all falls down ...+I&#39;ll be fine.+Why do we said this to ourselves, and even worse to each other?+We gotta get back to beautiful ...+Diamonds don&#39;t shatter, beautiful and battered.+Let the darkness lead us into the night.+One touch and I ignite.+Hear you calling me on from afar ...+We live, we love, we lie.+Deep in the dark I don&#39;t need the light.+So I walk into the dead of night.+I lost, I lost, I lost control again.+Always do the same and I&#39;m to blame.+Love there&#39;s no need to hide ...+I&#39;m waiting on the sidelines.+Just let me love you when your heart is tired.+If this night is not forever, at least we are together.+I know I&#39;m not alone.+Anywhere whenever, apart will still together.+Like the memory of everything we used to be ...+You played for me ...+We couldn&#39;t stop the world from turning.+Anywhere anytime, I would do anything for you.+Sing me to sleep now ...+Where are you now ...+Were you only imaginary ...+But I don&#39;t wanna go just yet ...+Shouldn&#39;t stay but I don&#39;t wanna go.+You know I&#39;m like a ghost, sometimes I have to fade ...+I do it all for you ...+Darkness faded, I wanna see your face ...")); 
+          </script>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+    <div id="main" class="wrapper">
+      <div id="primary" class="site-content">
+        <div id="content" role="main"><article id="post-Solution-CF-1327" class="post-Solution-CF-1327 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      Codeforces 1327 [Edu Round 84 (Div.2)] 赛后题解
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <!-- <a href="javascript:void(0);" target="_blank" rel="noopener" data-url="http://yoursite.com/2020/03/25/Solution-CF-1327/" data-id="ck86f6wpx0000y8ntcdvlgocf" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a> -->
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>咕咕咕好久了 .. 发份题解罢 </p>
+<hr>
+<h2 id="CF-1327-Edu-Round-84-Div-2-赛后题解"><a href="#CF-1327-Edu-Round-84-Div-2-赛后题解" class="headerlink" title="CF 1327 [Edu Round 84 (Div.2)] 赛后题解"></a>CF 1327 [Edu Round 84 (Div.2)] 赛后题解</h2><p>rk: $3771$, $\Delta : -17$  </p>
+<p>所有题解均由 lguid 244079 转载在其博客上, 单独作为题解 .. 这个不会被封博客罢 (  </p>
+<hr>
+<p>赛后感想: </p>
+<p>这场又是自闭下分场 ..<br>明明会 5 道却只做出来两道 ..<br>明明开 B 或 E 都可以上分, 却开了 D ..<br>明明 D 想到正解了却算错复杂度 .. .. .. zbl<br>嘤, 难受  </p>
+<p>好吧现在是题解 time! (还是很自闭, 嘤嘤嘤  </p>
+<a id="more"></a> 
+
+<p>(对于所有的 $\sum$, 下标均为从 $1$ 开始.)</p>
+<hr>
+<hr>
+<p>A:  </p>
+<hr>
+<p>题目大意:  </p>
+<p>给你 $n$ 和 $k$, 求出 $n$ 是否能被表示成 $k$ 个不同的正奇数的和.  </p>
+<hr>
+<p>这题其实就一思维难度和代码难度都极低的 sb 送分题 ..  </p>
+<p>首先明显有 $k$ 个奇数相加的结果与 $k$ 同奇偶。<br>因为 $\sum^k_i x_i (\forall x_i \in \text{odd}) \equiv \sum^k_i 1 = k (\mod 2)$<br>把 $n$ 和 $k$ 不同奇偶的情况判掉就好了.  </p>
+<p>然后又有 $k^2 &lt;= n$.   </p>
+<p>因为 $k$ 个不同正奇数相加的最小值肯定为 $\sum^k_i (2 \times i - 1) = -k + 2 \times \sum^k_i i = k^2$, sb 小学奥数题.  </p>
+<p>然后判一下条件就 AC 辣!  </p>
+<p>主要代码:  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">puts</span>(((k - n) &amp; <span class="number">1</span>) &amp;&amp; ((n - <span class="number">1</span>) / k &lt; k)? <span class="string">"YES"</span>: <span class="string">"NO"</span>);</span></pre></td></tr></table></figure>
+<p>注意如果是用的 <code>k * k &lt;= n</code> 计算要转成 ll, 不然会爆 int.  </p>
+<p>难度: 学过输入输出就会做了  </p>
+<hr>
+<hr>
+<p>B:  </p>
+<hr>
+<p>题目大意:  </p>
+<p>给你一个两堆数目相等的东西, 现在要求把她们进行配对.  </p>
+<p>在配对之前可以增加一条边, 该边为自己选择.  </p>
+<p>配对规则:<br>有一个边集, 两个点能匹配当且仅当这两个点间有边<br>标号小的优先被配对.<br>没了  </p>
+<p><del>是的就这么少 (</del>  </p>
+<p>如果增加那条边后配对对数均没有变化, 输出 <code>OPTIMAL</code>, 否则输出 <code>IMPROVE</code> 并在下一行输出边的两个端点的编号.  </p>
+<hr>
+<p>B 比 C 简单差评 ..<br>赛时题意看成要使配对数最大 ..<br>感觉没什么思路很难受于是就去开了 C 和 D ..<br>最后 20min 才带着崩掉的心态来写 ..<br>最后 10s 还没交上去 /dk  </p>
+<p>其实就是看不看得懂题目的问题 ..<br>看懂了的话那么就非常简单了  </p>
+<p>首先 $\Theta(\sum k)$ 膜拟处理出每个人是否进行了配对, 然后找到两个没有被匹配过的人, 让她们进行配对就好了</p>
+<p>正确性?  </p>
+<p>显然这两个人都没有被配对 (废话)<br>那么让她们配对起来不就好了吗 ( ( (逃  </p>
+<p>正经的:<br>设这两个人分别为 $a_i$ 和 $b_j$<br>那么显然加了边之后 $\forall x &lt; i, y &lt; j$, $a_x$ 和 $b_j$, $b_y$ 和 $a_i$ 都不会配对.<br>因为加了边之后只是 $a_i$ 的清单有所变化, 其他的 $a$ 清单都是不变的, 所以在之前的配对都不会改变.<br>那么 $a_i$ 和 $b_j$ 就理所应当地匹配到一起了<br>之后由于 $a_i$ 和 $b_j$ 均匹配完毕, 所以对后面的匹配不产生影响<br>那么显然最后的结果会多 $1$, 也就满足了题意 (管她是不是最大, 有多不就好了  </p>
+<p>当没有未被匹配的点的时候, 便无解, 因为此时匹配数已经最大<br>又因为这实际上是个二分图匹配, 所以未匹配的点肯定成对出现, 可行性显然.  </p>
+<p>那么这就解决了 <del>废话扯了一大堆 (</del>  </p>
+<p>放个主要代码吧 .. <del>其实是缺省源太长了 (</del>  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> mySolve &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> Quote; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> SUBTEST  </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> n, k, x; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">std</span> :: <span class="built_in">vector</span> &lt; <span class="keyword">int</span> &gt; g[<span class="number">200010</span>]; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">int</span> in[<span class="number">200010</span>], vis[<span class="number">200010</span>]; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">std</span> :: <span class="built_in">vector</span> &lt; <span class="keyword">int</span> &gt; ans; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">        <span class="built_in">read</span>(n); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">        Rep (i, <span class="number">1</span>, n) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">            vis[i] = in[i] = <span class="number">0</span>, g[i].<span class="built_in">clear</span>(); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        Rep (i, <span class="number">1</span>, n) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">            <span class="built_in">read</span>(k); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">            Rep (j, <span class="number">1</span>, k) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">                <span class="built_in">read</span>(x), g[i].push_back(x); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">        ans.<span class="built_in">clear</span>(); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">        Rep (i, <span class="number">1</span>, n) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">int</span> id = <span class="number">0</span>; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j: g[i]) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">if</span> (!vis[j] &amp;&amp; !id) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">                    id = j; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> (!id) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">                ans.push_back(i); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">continue</span>; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">            vis[id] = <span class="number">1</span>; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">        sort(ans.<span class="built_in">begin</span>(), ans.<span class="built_in">end</span>()); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">        Rep (i, <span class="number">1</span>, n) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> (!vis[i]) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">return</span> ps(<span class="string">"IMPROVE\n"</span>), printsp(ans[<span class="number">0</span>]), <span class="built_in">println</span>(i); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> ps(<span class="string">"OPTIMAL\n"</span>); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">&#125;;</span></pre></td></tr></table></figure>
+
+<p>多组数据记得清空<br><del>应该没复杂到看不懂的地步 (</del>  </p>
+<p>难度: 学过 1 个月 OI 的, 会模拟就能做了, 我不会模拟, wssb  </p>
+<hr>
+<hr>
+<p>C: </p>
+<hr>
+<p>题目大意:  </p>
+<p>有一个 $n\times m$ 的网格图  </p>
+<p>给您一堆一一对应的点与目标点,<br>您可以将所有点同时 上/下/左/右 同时移动, 且点会被边界挡住<br>您需要在 $2\times n \times m$ 的次数内将每个点都至少移动到过一次对应的目标点  </p>
+<p>输出方案  </p>
+<hr>
+<p>这题 sb 题 ..<br>赛时一眼秒出正解, 结果因为题面的乘法不加乘号导致纠结好半天 .. </p>
+<p>那么由于步数只限制到 $2\times n \times m$ 而不是 $n \times m$<br>那么我们可以考虑直接把全部点扔到某个角落然后游览全图 (  </p>
+<p>显然每个点在进行 $n - 1$ 的上移和 $m - 1$ 次的右移之后一定会到达右上角.<br>所以最终的步数为 $n\times m + n + m - 2$, 在 $1 \leq n, m$ 的时候显然少于 $2\times n \times m$</p>
+<p>这个没必要放代码了吧 ..  </p>
+<p>难度: sb一眼思路题, 打过 1 个月 CF 基本就会做了  </p>
+<hr>
+<hr>
+<p>D:  </p>
+<hr>
+<p>题目大意:  </p>
+<p>给你一个排列 $p$, 定义 $x^k = \underbrace{p[p[p[}_\mathtt{共 k 个} \cdots p[x] \cdots ]]]$  </p>
+<p>现在给你 $p$ 和权值 $c$ 要求出最小的 $k$, 使得 $c[x] = c[x^k] = c[x^{2\times k}] = \cdots$</p>
+<hr>
+<p>D 比 E 难差评<br>比赛的时候 20min 就想到了正解 ..<br>然后弱智地算错了 $sigma$ 以为 $\Theta(n\sigma (n))$ 过不了 $\text{2e5}$ 的数据 ..<br>就跑去研究 $\Theta(n)$ dp 最长环状等差子序列 .. 最后花了 60min 没研究出来<br>自闭了  </p>
+<p>回到正题:  </p>
+<p>首先肯定是大力 dfs 一遍把所有强连通分量处理出来, 由于每个点的出度均为 $1$ 所以不存在单个点在多个强连通分量内的清况.  </p>
+<p>然后不在任何强连通分量内的点显然对答案不会有任何贡献, 因为跳到最后总会跳到强连通分量内.  </p>
+<p>于是就是一个在环上面跳来跳去的 sb 问题  </p>
+<p>因为在长度为 $n$ 的环上面跳, 每次跳 $k$ 步, 最后经过的点是 $n$ 以内 $\gcd(n, k)$ 的所有倍数, 这个自证不难, 是一个很常用的性质 ..  </p>
+<p>于是最优的 $k$ 肯定可以整除所在强连通分量的大小.  </p>
+<p>那么把强连通分量的大小分解一下质因数然后枚举组合 (其实可以 $\Theta(\sqrt n)$ 直接算 。。<br>直接暴力统计是否符合 $c$ 的限制就好了 </p>
+<p>把答案取 $\min$ 就统计完毕.  </p>
+<p>总复杂度 $\Theta(n\sigma(n))$, $\sigma$ 代表质因数个数.<br>正常情况下跑不满 ..  $\text{2e5}$ 的数据也肯定能过 .. 真心不知道我怎么把复杂度算错的 (  </p>
+<p>感觉讲的有点复杂 .. 于是放个代码吧  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> mySolve &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> Quote; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> SUBTEST  </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">int</span> n, p[<span class="number">200010</span>], c[<span class="number">200010</span>]; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">std</span> :: <span class="built_in">vector</span> &lt; <span class="keyword">int</span> &gt; v[<span class="number">200010</span>], m[<span class="number">200010</span>]; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">int</span> v_cnt = <span class="number">1</span>; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">int</span> vis[<span class="number">200010</span>]; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">int</span> num[<span class="number">200010</span>], lst[<span class="number">200010</span>], fst[<span class="number">200010</span>]; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">int</span> ans; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> (vis[x] == v_cnt) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> (v[v_cnt].<span class="built_in">clear</span>(), v[v_cnt].push_back(x), x); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> (vis[x]) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="number">0</span>; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">        vis[x] = v_cnt; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">int</span> _; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> ((_ = dfs(p[x])) != x &amp;&amp; _) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> (v[v_cnt].push_back(x), _); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">else</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> (_) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">return</span> (++ v_cnt, <span class="number">0</span>); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">else</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">return</span> <span class="number">0</span>; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">        <span class="built_in">read</span>(n); ans = n; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">        v_cnt = <span class="number">1</span>; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">        Rep (i, <span class="number">1</span>, n) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">            <span class="built_in">read</span>(p[i]), vis[i] = <span class="number">0</span>; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">        Rep (i, <span class="number">1</span>, n) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">            <span class="built_in">read</span>(c[i]); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">        Rep (i, <span class="number">1</span>, n) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> (!vis[i]) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">                dfs(i); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">        Rep (i, <span class="number">1</span>, v_cnt - <span class="number">1</span>) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">for</span> (<span class="keyword">unsigned</span> j = <span class="number">1</span>; j \times j &lt;= v[i].<span class="built_in">size</span>(); ++ j) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">if</span> (!(v[i].<span class="built_in">size</span>() % j)) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line">                    <span class="keyword">for</span> (<span class="keyword">unsigned</span> k = <span class="number">0</span>; k &lt; j; ++ k) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line">                        <span class="keyword">unsigned</span> _ = k + j; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line">                        <span class="keyword">while</span> (_ &lt; v[i].<span class="built_in">size</span>() &amp;&amp; c[v[i][_]] == c[v[i][k]]) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line">                            _ += j; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><span class="line">                        <span class="keyword">if</span> (_ &gt;= v[i].<span class="built_in">size</span>()) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><span class="line">                            ans = Min(ans, (<span class="keyword">int</span>)j); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><span class="line">                    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><span class="line">                    <span class="keyword">unsigned</span> num = v[i].<span class="built_in">size</span>() / j; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">50</span></pre></td><td class="code"><pre><span class="line">                    <span class="keyword">for</span> (<span class="keyword">unsigned</span> k = <span class="number">0</span>; k &lt; num; ++ k) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">51</span></pre></td><td class="code"><pre><span class="line">                        <span class="keyword">unsigned</span> _ = k + num; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">52</span></pre></td><td class="code"><pre><span class="line">                        <span class="keyword">while</span> (_ &lt; v[i].<span class="built_in">size</span>() &amp;&amp; c[v[i][_]] == c[v[i][k]]) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">53</span></pre></td><td class="code"><pre><span class="line">                            _ += num; </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">54</span></pre></td><td class="code"><pre><span class="line">                        <span class="keyword">if</span> (_ &gt;= v[i].<span class="built_in">size</span>()) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">55</span></pre></td><td class="code"><pre><span class="line">                            ans = Min(ans, (<span class="keyword">int</span>)num); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">56</span></pre></td><td class="code"><pre><span class="line">                    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">57</span></pre></td><td class="code"><pre><span class="line">                &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">58</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">// for (int j: v[i]) </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">59</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//     num[c[j]] = v[i].size(), lst[c[j]] = 0, fst[c[j]] = 0; </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">60</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">// int k = 0; </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">61</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">// for (int j: v[i]) &#123;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">62</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//     ++ k; </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">63</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//     if (!lst[c[j]]) </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">64</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//         fst[c[j]] = lst[c[j]] = k; </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">65</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//     else </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">66</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//         if (num[c[j]] + lst[c[j]] == k) </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">67</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//             lst[c[j]] = k; </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">68</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//         else </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">69</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//             num[c[j]] = k - fst[c[j]], lst[c[j]] = k; </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">70</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">// &#125;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">71</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">// // for (int j: v[i]) </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">72</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">// //     printsp(num[c[j]]); </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">73</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">// // pc(10); </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">74</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">// // printsp((int)v[i].size()); </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">75</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">// for (int j: v[i]) </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">76</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">//     if ((num[c[j]] + lst[c[j]]) - (int)v[i].size() == fst[c[j]]) </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">77</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">// //         ans = Min(ans, num[c[j]]); </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">78</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">79</span></pre></td><td class="code"><pre><span class="line">        <span class="built_in">println</span>(ans); </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">80</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">81</span></pre></td><td class="code"><pre><span class="line">&#125;;</span></pre></td></tr></table></figure>
+
+<p>自认为写得挺清楚了 (¿)  </p>
+<p>被注释掉的代码是一个假掉的思路 ..<br>把 <code>k - fst[c[j]]</code> 那里换成 $\Theta(n)$ 枚举然后后面再稍微做一点变化就是对的了 ..<br>但是复杂度 $\Theta(n^2)$ ..<br>有神仙教教我如何 $\Theta(n)/\Theta(n\log n)$ 求最长环状等差子序列吗 /kel</p>
+<hr>
+<hr>
+<p>E:  </p>
+<hr>
+<p>题目大意:  </p>
+<p>给你一个 $n$, 要你求出对于所有 $n$ 位的数字 (含前导零), 连续数码块的长度各出现了多少次.  </p>
+<p>实在不会翻译 ..  看原题翻译去吧 (  </p>
+<hr>
+<p>赛时根本没看这道题 .. 全在淦 D<br>zbl, 不淦 D 来切这道都能上分的 .. </p>
+<p>这是个怪异的计数问题 ..  考虑计算数码块长度的递推式 / 通项.  </p>
+<p>首先对于数码块肯定有 在左(右)端/在中间 两种情况.<br>(长度为 $n$ 和 $n-1$ 的是特殊情况, 要特判, 分别是 $10$ 和 $180$, 即样例二)  </p>
+<p>设当前统计的长度为 $l$.  </p>
+<p>那么在左/右端的情况,<br>举个例子就是 $\underbrace{aa\cdots aa}_\mathtt{l 个 数}b\underbrace{xx\cdots x}_\mathtt{n-l-1个数}$, 其中 $x$ 不一定相同.<br>显然每个 $x$ 和 $a$ 都有 $10$ 种取值, $b$ 由于要和 $a$ 相等于是只有 $9$ 种取值, 那么总数为 $9\times 10\times 10^{n-l-1} = 9 \times 10^{n-l}$.<br>左右端情况数的总和为 $18\times 10^{n-l}$</p>
+<p>在中间的情况数和在左右端的差不多,<br>例子: $\underbrace{xx\cdots x}_\mathtt{¿ 个 数}b\underbrace{aa\cdots a}_\mathtt{l个数}c\underbrace{xx\cdots x}_\mathtt{n-l-¿-2 个 数}$<br>但是是 $b$ 和 $c$ 都要与 $a$ 不同, 所以是 $9\times 9\times  10\times 10^{n-l-2} = 81\times 10^{n-l-1}$<br>中间一共有 $n-l-1$ 种位置, 所以中间情况数总和为 $(n-l-1)\times 81\times 10^{n - l - 1}$  </p>
+<p>那么答案一共是 $(n-l-1)\times 81\times 10^{n - l - 1} + 18\times 10^{n-l}$, 预处理一下 $10$ 的幂次, 然后直接按式子算就好了 .. </p>
+<p>式子都摆上面就不贴代码了 .. 注意取模, 不要爆 int, 然后就没事了</p>
+<hr>
+<p>FG 不想写了 .. 就这样吧 ..  </p>
+<p>3h 写完这个总结 (题解), 心态仍然很崩 .. 最后丢个<a href="https://www.luogu.com.cn/discuss/show/206703" target="_blank" rel="noopener">问题</a> 求回答嘤</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/03/25/Solution-CF-1327/">
+    <time datetime="2020-03-24T20:54:04.000Z" class="entry-date">
+        2020-03-25
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
+    
+    </footer>
+    
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2020/01/12/Solution-LG-P3519/" rel="next">洛谷 P3519 [POI2011]ROZ-Difference 题解 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+ 
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'lNUpA6BkJImryiC6W4KEOr1H-MdYXbMMI',
+            appKey: '6zz0wbwT2TlL9MRAaNfceFPI',
+            visitor: true,
+            placeholder: '说点什么?'
+        })
+    </script>
+</div>
+      </div>
+      <div id="secondary" class="widget-area" role="complementary">
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2020/03/25/Solution-CF-1327/">Codeforces 1327 [Edu Round 84 (Div.2)] 赛后题解</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/12/Solution-LG-P3519/">洛谷 P3519 [POI2011]ROZ-Difference 题解</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/29/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">字符串</a>
+    </div>
+  </aside>
+
+  
+</div>
+    </div>
+    <footer id="colophon" role="contentinfo">
+    <p>&copy; 2020 jzp
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+    <script type="text/javascript" src="/js/line_background.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function ($) {
+        $("body").click(function (e) {
+          var a = new Array("queue", "stack", "priority queue", "deque", "humdrum queue", "humdrum stack", "segment tree", "splay tree", "zkw segment tree", "tree array", "treap tree", "red black tree", "scapegoat tree", "fhq treap tree", "size balanced tree", "binary search tree", "top tree", "leafy tree", "list", "array", "tree", "avl tree", "link cut tree", "persistent segment tree", "immortal tree", "kruskal reconstruction tree", "weight balanced tree", "weight balanced leafy tree", "set", "multiset");
+          var a_idx = Math.floor(Math.random() * a.length);
+          var $i = $("<span/>").text(a[a_idx]);
+          var x = e.pageX,
+            y = e.pageY;
+          $i.css({
+            "z-index": 2147483647,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+          });
+          $("body").append($i);
+          $i.animate({
+            "top": y - 180,
+            "opacity": 0
+          },
+            1500,
+            function () {
+              $i.remove();
+            });
+        });
+      });
+    </script>
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+
+</html>
