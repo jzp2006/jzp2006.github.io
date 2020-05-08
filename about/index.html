@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang=zh> <head><meta charset=utf-8><!-- 渲染优化 --><meta name=renderer content=webkit><meta name=force-rendering content=webkit><meta http-equiv=X-UA-Compatible content="IE=Edge,chrome=1"><meta name=HandheldFriendly content=True><meta name=apple-mobile-web-app-capable content=yes><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=x-dns-prefetch-control content=on><link rel=dns-prefetch href=//cdn.jsdelivr.net><link rel=dns-prefetch href=//jzp2006.github.io><title>_jzp's blog.</title><link rel=stylesheet href=/assets/mdui/css/mdui.min.css><script async src=/assets/mdui/js/mdui.min.js></script><link rel=stylesheet href=/assets/theme.css><!--custom--><link rel=stylesheet href=/custom.css><!--highlight--><link rel=stylesheet href=/assets/github.min.css><script async src=/assets/highlight.min.js></script><script async src=/assets/highlightjs-line-numbers.min.js></script><script async src=/assets/highlightjs-copy-button.min.js></script><!--highlight end--><!-- markdown katex--><link rel=stylesheet href=/assets/markdown.css><script async src=/assets/marked.min.js></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css><script async src=/assets/katex.min.js></script><!-- markdown katex end--><link rel="shortcut icon" href=/img/icon.png><script async src=/assets/Valine.min.js></script><script async src=/assets/pjax.js></script><script async src=/assets/bundle.js></script></head> <div class=mdui-progress id=loading-progress style="position: fixed;top:0;z-index: 999999;"><div class=mdui-progress-indeterminate></div></div> <div id=theme_css></div> <body class="mdui-appbar-with-toolbar mdui-theme-accent-blue"> <div class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset mdui-color-white mdui-shadow-1"> <div class="mdui-toolbar mdui-color-theme"> <a href=javascript:drawer.toggle() class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a> <a href=/ class=mdui-typo-title>_jzp's blog.</a> <div class=mdui-toolbar-spacer></div> <div class=mdui-row id=toolbar-menu> <a href=/tags/ class="mdui-col mdui-text-color-black">TAGS</a> <a href=/categories/ class="mdui-col mdui-text-color-black">CATEGORIES</a> <a href=/tools/ class="mdui-col mdui-text-color-black">TOOLS</a> <a href=/about/ class="mdui-col mdui-text-color-black">ABOUT</a> <a href=/links/ class="mdui-col mdui-text-color-black">LINKS</a> </div><script>if(document.body.clientWidth<1078)document.getElementById('toolbar-menu').hidden=1;</script> <button onclick="music_on();document.getElementById('music_button').hidden=1" id=music_button class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '是否来点音乐?'}"> <i class="mdui-icon material-icons">queue_music</i> </button> <button class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '切换主题'}" mdui-menu="{target: '#theme_menu',align: 'right',covered: false}"> <i class="mdui-icon material-icons">view_quilt</i> </button> <ul class=mdui-menu id=theme_menu style="width: fit-content;"> <li class=mdui-menu-item mdui-tooltip="{content: '开启/关闭 pjax'}"><a onclick=pjax_on() id=pjax_button>pjax_on</a></li> <li class=mdui-menu-item mdui-tooltip="{content: '回归原本'}"><a href="javascript:theme('day')">日间模式</a></li> <li class=mdui-menu-item mdui-tooltip="{content: '晚上要保护眼睛哦'}"><a href="javascript:theme('night')">夜间模式</a></li> <li class=mdui-menu-item mdui-tooltip="{content: '满足你的少女心吧'}"><a href="javascript:theme('pink')">粉红</a></li> <li class=mdui-menu-item mdui-tooltip="{content: '没什么,就是淡蓝色'}"><a href="javascript:theme('blue')">粉蓝</a></li> </ul> <button onclick="search_dialog.open();document.getElementById('search_input').focus();" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">search</i></button> <button id=toc_button class="mdui-btn mdui-btn-icon mdui-ripple" onclick=toc_drawer.toggle(); hidden> <i class="mdui-icon material-icons">format_list_numbered</i> </button> </div> </div> <!-- 下面为目录部分,不要随意删除,上面随意--> <div class="mdui-drawer mdui-drawer-close mdui-drawer-full-height mdui-drawer-right mdui-shadow-2" id=toc_drawer hidden> <ul class=mdui-list id=toc></ul> </div> <div class=mdui-container> <div id=page_typ hidden>article</div> <div class="mdui-card article"> <div class=mdui-card-media> <img data-src=/img/0.jpg height=300px style="object-fit: cover;"> <div class=mdui-card-media-covered> <div class=mdui-card-primary> <div class=mdui-card-primary-title>About me</div> </div> </div> </div> <div class=mdui-card-header> <img class=mdui-card-header-avatar src=/img/avatar.png> <div class=mdui-card-header-title>_jzp</div> <div class=mdui-card-header-subtitle>2020-05-09</div> <div class=mdui-card-menu> <span id=About me class=leancloud_visitors data-flag-title="Your Article Title" hidden> <em class=post-meta-item-text>阅读量</em> <i class=leancloud-visitors-count>1000000</i> </span> <button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '分享'}" mdui-menu="{target: '#share_menu',align: 'right',covered: false}"> <i class="mdui-icon material-icons">share</i> </button> <ul class=mdui-menu id=share_menu style="width: fit-content;"> <li class="mdui-menu-item mdui-ripple"> <a id=share_weibo href="http://service.weibo.com/share/share.php?appkey=&title=About me&url=_url_&pic=_avatar_&searchPic=false&style=simple" target=_blank class=mdui-ripple> <img class="mdui-menu-item-icon mdui-icon" src=/assets/icon/weibo.ico>分享到微博 </a> </li> <li class="mdui-menu-item mdui-ripple"> <a id=share_qq href="http://connect.qq.com/widget/shareqq/index.html?site=_jzp's blog.&title=About me&summary=&pics=_avatar_&url=_url_" target=_blank class=mdui-ripple> <img class="mdui-menu-item-icon mdui-icon" src=/assets/icon/qq.svg>分享到QQ </a> </li> <li class="mdui-menu-item mdui-ripple"> <a id=share_twitter href="https://twitter.com/intent/tweet?text=About me&url=_url_&via=_jzp" target=_blank class=mdui-ripple> <img class="mdui-menu-item-icon mdui-icon" src=/assets/icon/twitter.svg>分享到Twitter </a> </li> <li class="mdui-menu-item mdui-ripple"> <a id=share_copy href=javascript:copylink(); class=mdui-ripple> <i class="mdui-menu-item-icon mdui-icon material-icons">link</i>复制链接 </a> </li> </ul> </div> </div> <div class=mdui-card-content>  <textarea id=md_source hidden>_jzp.  
+
+OIer.  
+
+菜, 啥都不会.  
+
+口胡选手.  
+
+CF 连 CM 都上不了.  
+
+天天 FST&降智.  
+
+以上是我对自己的真实评价.  
+
+---  
+
+这里是 _jzp.  
+
+初二, FJ 最菜 OIer.  
+现作业自闭中.  
+
+练习 OI 一年半.  
+
+时间 .. 有点后悔, NOIp2018 初赛结束后 5 天才开始学 OI.  
+
+CSP2019-J 280 分的 sb.  
+CSP2019-S 连报名都不敢报的 sb.  
+
+NOI-Online 2019 #1 tg 完全爆零的 sb.  
+NOI-Online 2019 #2 tg 连打都不敢打的 sb.  
+
+图论技能树: 鸽掉了.  
+dp技能树: 未开发.  
+ds技能树: 已重构, 重构失败.  
+数论技能树: 已垮.  
+各种科技树: 全忘光了.  
+
+曾轻度抑郁, 现在没事了.  
+
+i wanna 玩家.  
+喜欢 pvz (原版/beta/95, 最近准备入 false/活死人支线/etc...).  
+mc 已退坑.  
+算是个 DL 玩家吧 .. 不过已经云了快半年了.  
+偶尔 (指一两个月一次) 玩玩 Plague Inc.  
+应该是半个 Isaac 玩家, 近似退坑了吧.  
+ArkNights 什么的 .. 三四个月没玩了吧.  
+
+喜欢聊天, 讨论穴树问题, 被吊打, 不喜欢水群.  
+喜欢窥屏/发洛谷犇犇, 但仅限于某些穴树内容或自己感兴趣的内容.  
+
+有的时候会突然暴躁或者做出一些很像 xxs 的行为 .. 就像 .. 脑子坏掉了一样.  
+
+近期主要在 SPOJ 上刷题 (虽然已经退化成口胡选手了 /dk), Codeforces 上打比赛, 本博客上发题解, 心情好的时候可能会转到洛谷博客上什么的.  
+
+[SPOJ 账号](https://spoj.com/users/jzzzzzp)  
+[![](https://cfrating.ihcr.top/?user=Lab-Tree)](https://codeforces.ml/profile/Lab-Tree)  
+[洛谷博客](https://www.luogu.com.cn/blog/CSP-QAQ/)
+
+应该是没有了.  </textarea> <div id=md_out class=markdown-body><p>文章加载中...</p><center><div class="mdui-spinner mdui-spinner-colorful"></div></center></div> </div> </div> <div class=mdui-card style="margin-top: 50px;"> <div class=mdui-card-content> <div id=vcomments hidden>{"placeholder":"可以支持评论了","appid":"lNUpA6BkJImryiC6W4KEOr1H-MdYXbMMI","appkey":"6zz0wbwT2TlL9MRAaNfceFPI"}</div> <div id=comments><p>评论加载中...</p> <center><div class="mdui-spinner mdui-spinner-colorful"></div></center></div> </div> </div> </div> <div class=mdui-bottom-nav></div> </body> <!--top--> <button class="mdui-fab mdui-fab-mini mdui-ripple mdui-fab-fixed mdui-fab-hide" id=totop onclick=totop() style="z-index: 99999;"> <i class="mdui-icon material-icons">keyboard_arrow_up</i> </button> <!--top end--> <div class=mdui-dialog id=search_dialog> <div class=mdui-dialog-title>Search</div> <div class=mdui-dialog-content> <div class=mdui-textfield> <i class="mdui-icon material-icons">search</i> <input id=search_input class=mdui-textfield-input placeholder=搜索 onchange="search('/assets/data.json')"> </div> <div id=search_result class=mdui-list></div> </div> <script defer src=/assets/search.js></script> </div>  <div class="mdui-drawer mdui-drawer-close mdui-drawer-full-height mdui-shadow-2" id=drawer> <ul class=mdui-list> <div class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text mdui-text-color-black">home</i> <a href=/ class=mdui-list-item-content>_jzp's blog.</a> </div> <a href=/about> <img class="avatar mdui-shadow-1" src=/img/avatar.png width=90% height=90% style="margin: 10px;"> </a> <li class=mdui-subheader>Pages</li> <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-black">bookmark_border</i><a href=/tags class=mdui-list-item-content>标签云</a> </li> <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-black">book</i><a href=/categories class=mdui-list-item-content>分类</a> </li> <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-black">link</i><a href=/links class=mdui-list-item-content>友链</a> </li> <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-black">build</i><a href=/tools class=mdui-list-item-content>工具集</a> </li> <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-black">person</i><a href=/about class=mdui-list-item-content>关于我</a> </li> <li class=mdui-subheader>links</li> <li class="mdui-list-item mdui-ripple"> <img class=mdui-list-item-icon src=/assets/icon/SPOJ.png><a href=https://spoj.com/ class=mdui-list-item-content>SPOJ</a> </li> <li class="mdui-list-item mdui-ripple"> <img class=mdui-list-item-icon src=/assets/icon/cloudmusic.ico><a href=https://music.163.com/ class=mdui-list-item-content>网易云音乐</a> </li> <li class="mdui-list-item mdui-ripple"> <img class=mdui-list-item-icon src=/assets/icon/zhihu.ico><a href=https://www.zhihu.com/ class=mdui-list-item-content>知乎</a> </li> <li class="mdui-list-item mdui-ripple"> <img class=mdui-list-item-icon src=/assets/icon/luogu.png><a href=https://luogu.com.cn/ class=mdui-list-item-content>洛谷</a> </li> <li class="mdui-list-item mdui-ripple"> <img class=mdui-list-item-icon src=/assets/icon/github.svg><a href=https://github.com/ class=mdui-list-item-content>Github</a> </li>   <div id=musiclist></div> <script>
+function music_on(){
+    pjax_on(1);
+    var x=document.getElementById('musiclist');
+    x.innerHTML="";
+    mdui.snackbar({message:'歌单加载中,请稍等2-10s'});
+    var hl=document.createElement('link');
+    hl.href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css";
+    hl.type='text/css';
+    hl.rel='stylesheet';
+    x.appendChild(hl);
+    hl=document.createElement('script');
+    hl.src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js";
+    x.appendChild(hl);
+    hl=document.createElement('script');
+    hl.src="https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js";
+    x.appendChild(hl);
+
+    hl=document.createElement('meting-js');
+    hl.setAttribute('id','None');
+    hl.setAttribute('fixed','true');
+    hl.setAttribute('server','None');
+    hl.setAttribute('type','playlist');
+    hl.setAttribute('order','None');
+    hl.setAttribute('theme','None');
+    x.appendChild(hl);
+}
+</script> <style>.aplayer,.aplayer-body,.aplayer-pic,.aplayer-button{z-index: 9999999 !important;}</style>  </html>
