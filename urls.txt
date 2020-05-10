@@ -1,8 +1,15 @@
 https://jzp2006.github.io/posts/0
+https://jzp2006.github.io/posts/1
 https://jzp2006.github.io
 https://jzp2006.github.io/about
 https://jzp2006.github.io/readme
 https://jzp2006.github.io/tools
+https://jzp2006.github.io/tags/比赛题解
+https://jzp2006.github.io/tags/constructive
+https://jzp2006.github.io/tags/math (easy)
+https://jzp2006.github.io/tags/Brute Force
 https://jzp2006.github.io/categories/thanks.
+https://jzp2006.github.io/categories/赛后题解/Codeforces
+https://jzp2006.github.io/categories/赛后题解
 https://jzp2006.github.io/categories
 https://jzp2006.github.io/links
