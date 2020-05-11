@@ -50,7 +50,111 @@ sb 题 (
 
 ---
 
-继续鸽 (  </textarea> <div id=md_out class=markdown-body> <p>文章加载中...</p> <center><div class="mdui-spinner mdui-spinner-colorful"></div></center> </div> </div> </div> <div class="mdui-row-xs-3 article"> <div class=mdui-col> <a href=/posts/0 class=mdui-text-color-black id=pre_button> <i class="mdui-icon material-icons">arrow_back</i> 谢谢. </a> </div> <div class="mdui-col mdui-text-center">CF 1352 CF#640 (Div.4)</div> <div class=mdui-col> <a href=/posts/0 class="mdui-text-color-black mdui-float-right" id=nxt_button> 谢谢. <i class="mdui-icon material-icons">arrow_forward</i> </a> </div> </div> <div class=mdui-card style="margin-top: 50px;"> <div class=mdui-card-content> <div id=vcomments hidden>{"placeholder":"可以支持评论了","appid":"lNUpA6BkJImryiC6W4KEOr1H-MdYXbMMI","appkey":"6zz0wbwT2TlL9MRAaNfceFPI"}</div> <div id=comments><p>评论加载中...</p> <center><div class="mdui-spinner mdui-spinner-colorful"></div></center></div> </div> </div> </div> <div class=mdui-bottom-nav></div> </body> <!--top--> <button class="mdui-fab mdui-fab-mini mdui-ripple mdui-fab-fixed mdui-fab-hide" id=totop onclick=totop() style="z-index: 99999;"> <i class="mdui-icon material-icons">keyboard_arrow_up</i> </button> <!--top end--> <div class=mdui-dialog id=search_dialog> <div class=mdui-dialog-title>Search</div> <div class=mdui-dialog-content> <div class=mdui-textfield> <i class="mdui-icon material-icons">search</i> <input id=search_input class=mdui-textfield-input placeholder=搜索 onchange="search('/assets/data.json')"> </div> <div id=search_result class=mdui-list></div> </div> <script defer src=/assets/search.js></script> </div>  <div class="mdui-drawer mdui-drawer-close mdui-drawer-full-height mdui-shadow-2" id=drawer> <ul class=mdui-list> <div class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text mdui-text-color-black">home</i> <a href=/ class=mdui-list-item-content>_jzp's blog.</a> </div> <a href=/about> <img class="avatar mdui-shadow-1" src=/img/avatar.png width=90% height=90% style="margin: 10px;"> </a> <li class=mdui-subheader>Pages</li> <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-black">bookmark_border</i><a href=/tags class=mdui-list-item-content>标签云</a> </li> <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-black">book</i><a href=/categories class=mdui-list-item-content>分类</a> </li> <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-black">link</i><a href=/links class=mdui-list-item-content>友链</a> </li> <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-black">build</i><a href=/tools class=mdui-list-item-content>工具集</a> </li> <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-black">person</i><a href=/about class=mdui-list-item-content>关于我</a> </li> <li class=mdui-subheader>links</li> <li class="mdui-list-item mdui-ripple"> <img class=mdui-list-item-icon src=/assets/icon/SPOJ.png><a href=https://spoj.com/ class=mdui-list-item-content>SPOJ</a> </li> <li class="mdui-list-item mdui-ripple"> <img class=mdui-list-item-icon src=/assets/icon/cloudmusic.ico><a href=https://music.163.com/ class=mdui-list-item-content>网易云音乐</a> </li> <li class="mdui-list-item mdui-ripple"> <img class=mdui-list-item-icon src=/assets/icon/zhihu.ico><a href=https://www.zhihu.com/ class=mdui-list-item-content>知乎</a> </li> <li class="mdui-list-item mdui-ripple"> <img class=mdui-list-item-icon src=/assets/icon/luogu.png><a href=https://luogu.com.cn/ class=mdui-list-item-content>洛谷</a> </li> <li class="mdui-list-item mdui-ripple"> <img class=mdui-list-item-icon src=/assets/icon/github.svg><a href=https://github.com/ class=mdui-list-item-content>Github</a> </li>   <div id=musiclist></div> <script>
+B: 
+
+---
+
+给出 $n, k$, 要求构造 $k$ 个正整数使得它们的和为 $n$, 且这些数字的奇偶性相同.  
+输出可行性与可行方案.  
+
+---
+
+奇怪的构造题.  
+
+首先 $n < k$ 时显然无解.  
+$k$ 为偶数, $n$ 为奇数时无解, 因为偶数个奇偶性相同的数之和肯定为偶数.  
+$k$ 为奇数, $n$ 为偶数且 $2 \times k > n$ 时无解, 因为此时只能通过构造 $k$ 个偶数来获得答案, 最小的正偶数为 $2$. 
+
+然后直接构造就好了.  
+
+对于 $n$ 为奇数:  
+构造 $k - 1$ 个 $1$ 与 $1$ 个 $n - k + 1$.  
+对于 $n$ 为偶数:  
+构造 $k - 1$ 个 $2$ 与 $1$ 个 $n - 2 \times k + 2$.  
+
+---
+
+C: 
+
+---
+
+给定 $n, k$, 求出第 $k$ 个无法被 $n$ 整除的数字.  
+
+---
+
+数学水平归零实锤了.  
+
+可以知道, $[1, ans]$ 之间可以被 $n$ 整除的数字个数为 $\lfloor \frac k{n - 1} \rfloor$, 这个感性理解就好了 ( ( ( (  
+
+那么答案也就是 $n\lfloor \frac k{n - 1} \rfloor + (k \mod (n - 1))$, 注意特判 $n-1 \mid k$ 的情况.  
+
+---
+
+D: 
+
+---
+
+给一个数组, 从两边依次取数, 要求每次取的数字之和都严格大于上一次并尽量最小.  
+输出取的次数, 从左边取到的数字之和, 从右边取到的数字之和.  
+
+---
+
+直接模拟.  
+
+---
+
+E: 
+
+---
+
+给定一个数组, 求数组某个元素是否为某一段不短于 2 的子段和, 输出这种元素的个数.  
+
+---
+
+暴力.  
+
+对于每个子段, 记录其和, 打标记.  
+最后扫一遍原数组, 统计.  
+
+然而这样空间会爆炸.  
+用 `bitset.reset()` 复杂度会去世, 于是考虑只记录和小于数组最大元素的值.  
+
+---
+
+F: 
+
+---
+
+给你 $a, b, c$, 要求构造一个 `01` 串, 使得其含有 $a$ 个 `00` 子串, $b$ 个 `01`/`10` 子串, $c$ 个 `11` 子串.  
+
+---
+
+挺无聊的构造题 = =  
+
+首先判掉 $a = 0$ 或 $c = 0$ 的情况.  
+
+然后显然是先构造 $a + 1$ 个 `0`, 然后构造 $\lceil \frac b2 \rceil - 1$ 个 `10`, 再构造 $c + 1$ 个 `0`, 最后构造 $1 - (b \mod 2)$ 个 `0` 就可以满足需求.  
+
+---
+
+G: 
+
+---
+
+给定 $n$, 要求构造一个 $n$ 的排列 $p$, 使得 $\forall 1 \leq i < n, 2 \leq |p_i - p_{i + 1}| \leq 4$
+
+---
+
+个人认为比 C 简单 = =  
+
+首先观察一下 $n = 4$ 的样例, 发现明显可以通过 $2a + 1, 2a - 1, 2a - 3, \cdots 5, 2, 4, 1, 3, 6, 8, \cdots 2a - 2, 2a$ 这样构造.  
+
+然后就是 sb 题了.  
+
+---
+
+没了 (  
+对于 sb 题有必要讲那么详细吗 (  </textarea> <div id=md_out class=markdown-body> <p>文章加载中...</p> <center><div class="mdui-spinner mdui-spinner-colorful"></div></center> </div> </div> </div> <div class="mdui-row-xs-3 article"> <div class=mdui-col> <a href=/posts/0 class=mdui-text-color-black id=pre_button> <i class="mdui-icon material-icons">arrow_back</i> 谢谢. </a> </div> <div class="mdui-col mdui-text-center">CF 1352 CF#640 (Div.4)</div> <div class=mdui-col> <a href=/posts/0 class="mdui-text-color-black mdui-float-right" id=nxt_button> 谢谢. <i class="mdui-icon material-icons">arrow_forward</i> </a> </div> </div> <div class=mdui-card style="margin-top: 50px;"> <div class=mdui-card-content> <div id=vcomments hidden>{"placeholder":"可以支持评论了","appid":"lNUpA6BkJImryiC6W4KEOr1H-MdYXbMMI","appkey":"6zz0wbwT2TlL9MRAaNfceFPI"}</div> <div id=comments><p>评论加载中...</p> <center><div class="mdui-spinner mdui-spinner-colorful"></div></center></div> </div> </div> </div> <div class=mdui-bottom-nav></div> </body> <!--top--> <button class="mdui-fab mdui-fab-mini mdui-ripple mdui-fab-fixed mdui-fab-hide" id=totop onclick=totop() style="z-index: 99999;"> <i class="mdui-icon material-icons">keyboard_arrow_up</i> </button> <!--top end--> <div class=mdui-dialog id=search_dialog> <div class=mdui-dialog-title>Search</div> <div class=mdui-dialog-content> <div class=mdui-textfield> <i class="mdui-icon material-icons">search</i> <input id=search_input class=mdui-textfield-input placeholder=搜索 onchange="search('/assets/data.json')"> </div> <div id=search_result class=mdui-list></div> </div> <script defer src=/assets/search.js></script> </div>  <div class="mdui-drawer mdui-drawer-close mdui-drawer-full-height mdui-shadow-2" id=drawer> <ul class=mdui-list> <div class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text mdui-text-color-black">home</i> <a href=/ class=mdui-list-item-content>_jzp's blog.</a> </div> <a href=/about> <img class="avatar mdui-shadow-1" src=/img/avatar.png width=90% height=90% style="margin: 10px;"> </a> <li class=mdui-subheader>Pages</li> <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-black">bookmark_border</i><a href=/tags class=mdui-list-item-content>标签云</a> </li> <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-black">book</i><a href=/categories class=mdui-list-item-content>分类</a> </li> <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-black">link</i><a href=/links class=mdui-list-item-content>友链</a> </li> <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-black">build</i><a href=/tools class=mdui-list-item-content>工具集</a> </li> <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-black">person</i><a href=/about class=mdui-list-item-content>关于我</a> </li> <li class=mdui-subheader>links</li> <li class="mdui-list-item mdui-ripple"> <img class=mdui-list-item-icon src=/assets/icon/SPOJ.png><a href=https://spoj.com/ class=mdui-list-item-content>SPOJ</a> </li> <li class="mdui-list-item mdui-ripple"> <img class=mdui-list-item-icon src=/assets/icon/cloudmusic.ico><a href=https://music.163.com/ class=mdui-list-item-content>网易云音乐</a> </li> <li class="mdui-list-item mdui-ripple"> <img class=mdui-list-item-icon src=/assets/icon/zhihu.ico><a href=https://www.zhihu.com/ class=mdui-list-item-content>知乎</a> </li> <li class="mdui-list-item mdui-ripple"> <img class=mdui-list-item-icon src=/assets/icon/luogu.png><a href=https://luogu.com.cn/ class=mdui-list-item-content>洛谷</a> </li> <li class="mdui-list-item mdui-ripple"> <img class=mdui-list-item-icon src=/assets/icon/github.svg><a href=https://github.com/ class=mdui-list-item-content>Github</a> </li>   <div id=musiclist></div> <script>
 function music_on(){
     pjax_on(1);
     var x=document.getElementById('musiclist');
