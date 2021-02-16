@@ -1,30 +1,9 @@
-https://jzp2006.github.io/posts/CF-1355-Round-643-(Div.2)
-https://jzp2006.github.io/posts/CF-1345-Round-639-(Div.2)
-https://jzp2006.github.io/posts/bu-kai-xin-.
-https://jzp2006.github.io/posts/CF-1350-Round-641-(Div.2)
-https://jzp2006.github.io/posts/CF-1352-Round-640-(Div.4)
+https://jzp2006.github.io/posts/wei-shen-me-zhi-ding-wen-zhang-yi-ding-yao-you-yan-su-de-biao-ti
 https://jzp2006.github.io
 https://jzp2006.github.io/about
 https://jzp2006.github.io/readme
 https://jzp2006.github.io/tools
-https://jzp2006.github.io/tags/赛后题解
-https://jzp2006.github.io/tags/BruteForce
-https://jzp2006.github.io/tags/math-easy
-https://jzp2006.github.io/tags/math-hard
-https://jzp2006.github.io/tags/贪心
-https://jzp2006.github.io/tags/TernarySearch
-https://jzp2006.github.io/tags/constructive
-https://jzp2006.github.io/tags/BreadthFirstSearch
-https://jzp2006.github.io/tags/dp
-https://jzp2006.github.io/tags/TopoSort判环
-https://jzp2006.github.io/tags/BinarySearch
-https://jzp2006.github.io/tags/比赛题解
-https://jzp2006.github.io/tags/math-normal
-https://jzp2006.github.io/tags/ShortestPaths
-https://jzp2006.github.io/categories/赛后题解/contest/Codeforces
-https://jzp2006.github.io/categories/赛后题解/contest
-https://jzp2006.github.io/categories/赛后题解/virtual participation/Codeforces
-https://jzp2006.github.io/categories/赛后题解/virtual participation
-https://jzp2006.github.io/categories/赛后题解
+https://jzp2006.github.io/tags/没啥用
+https://jzp2006.github.io/categories/介绍
 https://jzp2006.github.io/categories
 https://jzp2006.github.io/links
