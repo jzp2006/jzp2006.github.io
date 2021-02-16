@@ -28,11 +28,29 @@ Pages: # 该部分标题
     icon_typ: mdui
     icon: person
     icon_color: black
-links:
-  - content: SPOJ
-    url: https://spoj.com/
+  - content: 订阅
+    url: "{site_rt}/atom.xml"
+    icon_typ: mdui
+    icon: bookmark_border
+    icon_color: black
+Catch me:
+  - content: 给我写信
+    url: 
+    icon_typ: mdui
+    icon: email
+    icon_color: blue
+  - content: 电报
+    url: https://t.me/
+    icon_typ: img # 图片模式
+    icon: "{assets_rt}/icon/telegram-blue.svg"
+  - content: 推特
+    url: https://twitter.com/
     icon_typ: img
-    icon: "{assets_rt}/icon/SPOJ.png"
+    icon: "{assets_rt}/icon/twitter.svg"
+  - content: 哔哩哔哩
+    url: https://space.bilibili.com/
+    icon_typ: img
+    icon: "{assets_rt}/icon/bilibili.ico"
   - content: 网易云音乐
     url: https://music.163.com/
     icon_typ: img
